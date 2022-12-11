@@ -1,0 +1,39 @@
+CREATE TABLE seeduser (
+    userid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    passwords VARCHAR(30) NOT NULL,
+    phonenumber VARCHAR(20),
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE entries (
+    entryid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    devicekey VARCHAR(30) NOT NULL,
+    soilhumidity VARCHAR(30) NOT NULL,
+    humidity VARCHAR(30) NOT NULL,
+    temperature VARCHAR(30) NOT NULL,
+    lux VARCHAR(20) NOT NULL,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE followdevices (
+    followid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    userid VARCHAR(30) NOT NULL,
+    devicekey VARCHAR(30) NOT NULL,
+    follow VARCHAR(30) NOT NULL
+    );
+    
+ CREATE TABLE plantprofile (
+    plantid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    userid VARCHAR(30) NOT NULL,
+    followid VARCHAR(30) NOT NULL,
+    plantname VARCHAR(30) NOT NULL,
+    ph VARCHAR(10) NOT NULL,
+    lux VARCHAR(20) NOT NULL,
+    additive VARCHAR(30) NOT NULL,
+    temperature VARCHAR(20) NOT NULL,
+    batch VARCHAR(20) NOT NULL,
+    humidity VARCHAR(20) NOT NULL
+);
